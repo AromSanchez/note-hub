@@ -13,6 +13,12 @@ const taskSchema = new mongoose.Schema(
         fecha_limite: {
             type: Date,
             required: [true, "La fecha límite es obligatoria"],
+            validate: {
+                validator: function (value) {
+                    return value >= new Date();
+                },
+                message: "La fecha límite no puede estar en el pasado"
+            }
         },
         materia: {
             type: String,
@@ -20,25 +26,18 @@ const taskSchema = new mongoose.Schema(
         },
         estado: {
             type: String,
+            enum: ["pendiente", "completado"],
+            default: "pendiente",
             required: [true, "El estado es obligatorio"],
-        },
-        tareaId: {
-            type: mongoose.Schema.Types.ObjectId,
-        },
+        }
     },
     {
         timestamps: true,
         versionKey: false,
-    } 
+    }
 );
 
-// Hook para copiar _id en tareaId después de creare, (toma el _id por defecto de mongo y lo pone en tareaId)
-taskSchema.pre('save', function (next) {
-    if (!this.tareaId) {
-        this.tareaId = this._id;
-    }
-    next();
-});
+
 
 export const TaskModel = mongoose.model("Tarea", taskSchema);
 
