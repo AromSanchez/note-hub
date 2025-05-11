@@ -1,4 +1,4 @@
-import { TaskModel } from "../models/TaskModel"; //me imaginare que ese sera el archivo del modelo xd
+import { TaskModel } from "../models/TaskModel.js"; //me imaginare que ese sera el archivo del modelo xd
 
 //Metodo para obtener todas las tareas de la DB
 export const getAllTask = async (req, res) => {
