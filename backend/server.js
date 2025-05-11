@@ -17,11 +17,11 @@ app.get("/",(req, res) => {
 const PORT = process.env.PORT
 
 const MONGO_URL =  process.env.MONGO_URL
-/*
+
 app.listen(PORT, (req, res) => {
-    console.log(Servidor corriendo http://localhost: ${PORT})	            //mostrando por consola
+    console.log(`Servidor corriendo http://localhost: ${PORT}`)	            //mostrando por consola
 })                                                                          //el estado de la conexión
-*/
+
 
 const inicio = async() =>{
     try{
