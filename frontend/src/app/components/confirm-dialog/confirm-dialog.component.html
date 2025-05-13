@@ -1,0 +1,32 @@
+<div *ngIf="show" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center p-4 z-50">
+  <div class="bg-white rounded-xl shadow-xl w-full max-w-md">
+    <div class="p-6">
+      <div class="flex flex-col items-center mb-6">
+        <div class="bg-red-100 p-3 rounded-full text-red-600 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800 mb-2">
+          Eliminar Tarea
+        </h2>
+        <p class="text-gray-600 text-center">
+          ¿Estás seguro de que deseas eliminar esta tarea? Esta acción no se puede deshacer.
+        </p>
+      </div>
+      
+      <div class="flex justify-center gap-3 mt-6">
+        <button 
+          (click)="cancel.emit()"
+          class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+        >
+          Cancelar
+        </button>
+        <button 
+          (click)="confirm.emit()"
+          class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+        >
+          Sí, Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
