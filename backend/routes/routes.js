@@ -11,11 +11,11 @@ import {
 const ruta = express.Router();
 
 // Implementación de rutas utilizando encadenamiento de métodos
-router.route('/')
+ruta.route('/')
     .get(getAllTask)
     .post(createTask);
 
-router.route('/:id')
+ruta.route('/:id')
     .get(getTask)
     .put(updateTask)
     .delete(deleteTask);
