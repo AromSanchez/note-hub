@@ -1,7 +1,49 @@
-<header>
-   <div class="container w-75 mx-auto d-flex align-items-center justify-content-between mt-5">
-        <h1>Gestor de Tareas Académicas</h1>
-        <button class="btn btn-primary">Nueva tarea</button>
-    </div>
+<div class="container w-75 mx-auto d-flex align-items-center justify-content-between mt-5">
+    <h1 class="fw-semibold text-secondary">Gestor de Tareas</h1>
+    <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalNuevaTarea">
+        + Nueva tarea
+    </button>
+</div>
 
-</header>
+<!-- Modal xd -->
+<div class="modal fade" id="modalNuevaTarea" tabindex="-1" aria-labelledby="modalNuevaTareaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <form id="formTarea">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title text-primary fw-semibold" id="modalNuevaTareaLabel">Registrar tarea</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body px-4 pt-0">
+          <div class="mb-3">
+            <label for="titulo" class="form-label fw-medium text-muted">Título</label>
+            <input type="text" class="form-control rounded-3" id="titulo" name="titulo" required>
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label fw-medium text-muted">Descripción</label>
+            <textarea class="form-control rounded-3" id="descripcion" name="descripcion" rows="2" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label fw-medium text-muted">Fecha límite</label>
+            <input type="date" class="form-control rounded-3" id="fecha" name="fecha" required>
+          </div>
+          <div class="mb-3">
+            <label for="materia" class="form-label fw-medium text-muted">Materia</label>
+            <input type="text" class="form-control rounded-3" id="materia" name="materia" required>
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label fw-medium text-muted">Estado</label>
+            <select class="form-select rounded-3" id="estado" name="estado">
+              <option value="Pendiente" selected>Pendiente</option>
+              <option value="Completado">Completado</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0 px-4 pb-4">
+          <button type="submit" class="btn btn-success rounded-pill px-4">Guardar</button>
+          <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
