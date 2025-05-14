@@ -59,3 +59,24 @@ export const deleteTask = async (req,res) =>{
         return res.status(500).json({message: 'Error al eliminar la tarea',error}) //Mostrando el error xd
     }
 }
+
+export const getTaskStats = async (req, res) => {
+    try {
+        const tasks = await TaskModel.find(); // obtener todas las tareas
+        const total = await TaskModel.countDocuments();
+        const pendientes = await TaskModel.countDocuments({ estado: 'pendiente' });
+        const completadas = await TaskModel.countDocuments({ estado: 'completado' });
+
+        res.status(200).json({
+            tareas: tasks,
+            stats: {
+                total,
+                pendientes,
+                completadas
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener los datos principales', error });
+    }
+};
+

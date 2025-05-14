@@ -4,20 +4,20 @@ import {
     getTask,
     createTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    getTaskStats
 } from '../controllers/TaskController.js';
 
 // Creando router de Express
 const ruta = express.Router();
 
 // Implementación de rutas utilizando encadenamiento de métodos
-ruta.route('/')
-    .get(getAllTask)
-    .post(createTask);
+ruta.get('/', getTaskStats);
 
-ruta.route('/:id')
-    .get(getTask)
-    .put(updateTask)
-    .delete(deleteTask);
+
+// ruta.route('/:id')
+//     .get(getTask)
+//     .put(updateTask)
+//     .delete(deleteTask);
 
 export default ruta;

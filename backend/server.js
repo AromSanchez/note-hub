@@ -1,6 +1,7 @@
 import express from 'express'   //importando el paquete express
 import dotenv from 'dotenv'  
 import { connectDB } from './config/db.js' 
+import cors from 'cors'; // Importa CORS
 import router from './routes/routes.js' //importando las rutas  
 
 // Configuración de variables de entorno
@@ -8,6 +9,8 @@ dotenv.config()
 
 // Inicialización de la aplicación Express
 const app = express()           //creando una instancia de express
+
+app.use(cors());
 
 // Configuración de middleware esencial
 app.use(express.json())       //para que el servidor pueda recibir datos en formato JSON

@@ -1,36 +1,42 @@
 <main>
-   <div class="d-flex w-75 mx-auto mt-5 bg-white p-3 rounded shadow-sm">
-        <div>
-            <input type="radio">
+    <div *ngFor="let tarea of tareas" class="d-flex w-75 mx-auto mt-5 bg-white p-3 rounded shadow-sm">
+      <div>
+        <input type="radio" [checked]="tarea.estado === 'completado'" disabled />
+      </div>
+  
+      <div class="ps-3 w-100">
+        <h3 class="mb-1">{{ tarea.titulo }}</h3>
+        <p class="mb-2 mt-2 text-muted">{{ tarea.descripcion }}</p>
+  
+        <div class="d-flex mb-3 align-items-center">
+          <p class="mb-0 d-flex align-items-center me-3">
+            <img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/calendar-512.png" width="20" class="me-1" alt="">
+            {{ tarea.fecha_limite | date:'longDate' }}
+          </p>
+  
+          <p class="mb-0 d-flex align-items-center me-3">
+            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-clock-outline-1024.png" width="20" class="me-1" alt="">
+            {{ tarea.materia }}
+          </p>
+  
+          <span class="badge p-2"
+                [ngClass]="{
+                  'bg-warning text-dark': tarea.estado === 'pendiente',
+                  'bg-success text-white': tarea.estado === 'completado'
+                }">
+            {{ tarea.estado | titlecase }}
+          </span>
         </div>
-
-        <div class="ps-3 w-100">
-            <h3 class="mb-1">Ensayo</h3>
-            <p class="mb-2 mt-2 text-muted">Escribir un Ensayo</p>
-
-            <div class="d-flex mb-3 align-items-center">
-                <p class="mb-0 d-flex align-items-center me-3">
-                    <img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/calendar-512.png" width="20" class="me-1" alt="">
-                    Fecha
-                </p>
-
-                <p class="mb-0 d-flex align-items-center me-3">
-                    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-clock-outline-1024.png" width="20" class="me-1" alt="">
-                    Curso
-                </p>
-
-                <span class="badge bg-warning text-dark p-2">Pendiente</span>
-            </div>
-
-            <div class="d-flex">
-                <button class="btn p-0 me-2 border-0">
-                    <img src="https://cdn3.iconfinder.com/data/icons/social-media-2125/80/edit-512.png" width="24" alt="Editar">
-                </button>
-                <button class="btn p-0 border-0">
-                    <img src="https://cdn4.iconfinder.com/data/icons/computer-and-web-2/500/Delete-512.png" width="24" alt="Eliminar">
-                </button>
-            </div>
+  
+        <div class="d-flex">
+          <button class="btn p-0 me-2 border-0">
+            <img src="https://cdn3.iconfinder.com/data/icons/social-media-2125/80/edit-512.png" width="24" alt="Editar">
+          </button>
+          <button class="btn p-0 border-0">
+            <img src="https://cdn4.iconfinder.com/data/icons/computer-and-web-2/500/Delete-512.png" width="24" alt="Eliminar">
+          </button>
         </div>
+      </div>
     </div>
-
-</main>
+  </main>
+  
