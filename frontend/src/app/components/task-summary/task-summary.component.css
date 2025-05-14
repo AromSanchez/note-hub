@@ -1,0 +1,7 @@
+.acercar{
+    transition: transform 0.5s ease-in-out;
+}
+
+.acercar:hover{
+    transform: scale(1.04);
+}
