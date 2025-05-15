@@ -15,9 +15,6 @@ const ruta = express.Router();
 ruta.get('/', getTaskStats);
 
 
-// ruta.route('/:id')
-//     .get(getTask)
-//     .put(updateTask)
-//     .delete(deleteTask);
+ruta.route('/:id').get(getTask).put(updateTask) .delete(deleteTask);
 
 export default ruta;
