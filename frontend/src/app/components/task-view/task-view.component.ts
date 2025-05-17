@@ -21,4 +21,22 @@ export class TaskViewComponent implements OnInit {
       error: (err) => console.error('Error al obtener tareas', err)
     });
   }
+
+  eliminarTarea(id: string) {
+  if (!id) {
+    console.error('ID de tarea inválido:', id);
+    return;
+  }
+
+  this.taskService.deleteTarea(id).subscribe({
+    next: () => {
+      console.log('Tarea eliminada:', id);
+      this.ngOnInit(); // Recarga las tareas
+    },
+    error: (err) => {
+      console.error('Error al eliminar tarea:', err);
+    }
+  });
+}
+
 }
